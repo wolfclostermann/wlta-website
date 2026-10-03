@@ -1,0 +1,12 @@
+# Reverse proxy: wlta.cc -> the wlta-website GitHub Pages project page.
+# Deploy/redeploy with `npm run deploy` (see package.json), or `npx wrangler deploy`.
+name = "wlta-website-proxy"
+main = "src/worker.js"
+compatibility_date = "2026-09-01"
+
+# custom_domain = true makes wrangler create/manage the DNS record on the
+# wlta.cc zone automatically -- no manual CNAME/A record needed. Same trick
+# used for singer.wlta.cc in the kroak-time-ticker repo.
+routes = [
+  { pattern = "wlta.cc", custom_domain = true }
+]
